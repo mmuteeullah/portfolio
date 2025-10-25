@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammed Muteeullah - Senior SRE</title>
+    <meta name="description" content="Mohammed Muteeullah - Senior Site Reliability Engineer specializing in AWS, GCP, Kubernetes, and Infrastructure Automation">
+    <style>
+        /* Catppuccin Mocha Theme */
+        :root {
+            --ctp-rosewater: #f5e0dc;
+            --ctp-flamingo: #f2cdcd;
+            --ctp-pink: #f5c2e7;
+            --ctp-mauve: #cba6f7;
+            --ctp-red: #f38ba8;
+            --ctp-maroon: #eba0ac;
+            --ctp-peach: #fab387;
+            --ctp-yellow: #f9e2af;
+            --ctp-green: #a6e3a1;
+            --ctp-teal: #94e2d5;
+            --ctp-sky: #89dceb;
+            --ctp-sapphire: #74c7ec;
+            --ctp-blue: #89b4fa;
+            --ctp-lavender: #b4befe;
+            --ctp-text: #cdd6f4;
+            --ctp-subtext1: #bac2de;
+            --ctp-subtext0: #a6adc8;
+            --ctp-overlay2: #9399b2;
+            --ctp-overlay1: #7f849c;
+            --ctp-overlay0: #6c7086;
+            --ctp-surface2: #585b70;
+            --ctp-surface1: #45475a;
+            --ctp-surface0: #313244;
+            --ctp-base: #1e1e2e;
+            --ctp-mantle: #181825;
+            --ctp-crust: #11111b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--ctp-base);
+            color: var(--ctp-text);
+            font-family: 'Courier New', Courier, monospace;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .terminal-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .terminal-header {
+            background-color: var(--ctp-mantle);
+            padding: 10px 15px;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--ctp-surface0);
+            border-bottom: none;
+        }
+
+        .terminal-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-button.close { background-color: var(--ctp-red); }
+        .terminal-button.minimize { background-color: var(--ctp-yellow); }
+        .terminal-button.maximize { background-color: var(--ctp-green); }
+
+        .terminal-title {
+            margin-left: 10px;
+            color: var(--ctp-subtext0);
+            font-size: 12px;
+        }
+
+        .terminal-body {
+            background-color: var(--ctp-crust);
+            flex: 1;
+            padding: 20px;
+            border-radius: 0 0 8px 8px;
+            border: 1px solid var(--ctp-surface0);
+            overflow-y: auto;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .terminal-output {
+            margin-bottom: 10px;
+        }
+
+        .terminal-input-line {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .terminal-prompt {
+            color: var(--ctp-green);
+            flex-shrink: 0;
+        }
+
+        .terminal-prompt .user {
+            color: var(--ctp-mauve);
+        }
+
+        .terminal-prompt .at {
+            color: var(--ctp-text);
+        }
+
+        .terminal-prompt .host {
+            color: var(--ctp-blue);
+        }
+
+        .terminal-prompt .path {
+            color: var(--ctp-yellow);
+        }
+
+        .terminal-prompt .symbol {
+            color: var(--ctp-green);
+        }
+
+        #terminal-input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--ctp-text);
+            font-family: inherit;
+            font-size: inherit;
+            flex: 1;
+            caret-color: var(--ctp-text);
+        }
+
+        .command { color: var(--ctp-green); }
+        .error { color: var(--ctp-red); }
+        .success { color: var(--ctp-green); }
+        .info { color: var(--ctp-blue); }
+        .warning { color: var(--ctp-yellow); }
+        .highlight { color: var(--ctp-peach); }
+        .link { color: var(--ctp-sapphire); text-decoration: underline; cursor: pointer; }
+        .muted { color: var(--ctp-overlay0); }
+
+        .ascii-art {
+            color: var(--ctp-mauve);
+            line-height: 1.2;
+            font-size: 12px;
+            white-space: pre;
+        }
+
+        .section-title {
+            color: var(--ctp-peach);
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .job-title {
+            color: var(--ctp-blue);
+            font-weight: bold;
+        }
+
+        .company {
+            color: var(--ctp-mauve);
+            font-weight: bold;
+        }
+
+        .date {
+            color: var(--ctp-yellow);
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background-color: var(--ctp-surface0);
+            color: var(--ctp-text);
+            padding: 2px 8px;
+            margin: 2px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        /* Scrollbar styling */
+        .terminal-body::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .terminal-body::-webkit-scrollbar-track {
+            background: var(--ctp-mantle);
+        }
+
+        .terminal-body::-webkit-scrollbar-thumb {
+            background: var(--ctp-surface0);
+            border-radius: 4px;
+        }
+
+        .terminal-body::-webkit-scrollbar-thumb:hover {
+            background: var(--ctp-surface1);
+        }
+
+        /* Matrix rain animation */
+        #matrix-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            display: none;
+            background-color: rgba(0, 0, 0, 0.95);
+        }
+
+        @media (max-width: 768px) {
+            .terminal-container {
+                padding: 10px;
+            }
+
+            .terminal-body {
+                font-size: 12px;
+                padding: 15px;
+            }
+
+            .ascii-art {
+                font-size: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="matrix-canvas"></canvas>
+
+    <div class="terminal-container">
+        <div class="terminal-header">
+            <div class="terminal-button close"></div>
+            <div class="terminal-button minimize"></div>
+            <div class="terminal-button maximize"></div>
+            <span class="terminal-title">muteeullah@portfolio ~ zsh</span>
+        </div>
+        <div class="terminal-body" id="terminal-output">
+            <div class="terminal-output" id="output"></div>
+            <div class="terminal-input-line">
+                <span class="terminal-prompt">
+                    <span class="user">guest</span><span class="at">@</span><span class="host">muteeullah</span> <span class="path">~</span> <span class="symbol">$</span>
+                </span>
+                <input type="text" id="terminal-input" autofocus autocomplete="off" spellcheck="false">
+            </div>
+        </div>
+    </div>
+
+    <script src="terminal.js"></script>
+</body>
+</html>

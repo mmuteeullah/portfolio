@@ -1,0 +1,22 @@
+{
+  "name": "muteeullah-portfolio",
+  "version": "1.0.0",
+  "description": "Terminal-themed portfolio website for Mohammed Muteeullah",
+  "scripts": {
+    "dev": "netlify dev",
+    "serve": "python3 -m http.server 8000",
+    "deploy": "netlify deploy --prod"
+  },
+  "keywords": [
+    "portfolio",
+    "terminal",
+    "sre",
+    "catppuccin"
+  ],
+  "author": "Mohammed Muteeullah <muteeullah.shaikh@gmail.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
+  }
+}
