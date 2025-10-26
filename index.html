@@ -99,6 +99,8 @@
 
         .terminal-output {
             margin-bottom: 10px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .terminal-input-line {
@@ -208,6 +210,26 @@
             background: var(--ctp-surface1);
         }
 
+        /* Mobile scrollbar - thinner */
+        @media (max-width: 768px) {
+            .terminal-body::-webkit-scrollbar {
+                width: 4px;
+            }
+        }
+
+        /* Touch-friendly improvements */
+        @media (hover: none) and (pointer: coarse) {
+            /* This targets touch devices */
+            #terminal-input {
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+
+            .link {
+                padding: 4px 0;
+                display: inline-block;
+            }
+        }
+
         /* Matrix rain animation */
         #matrix-canvas {
             position: fixed;
@@ -220,18 +242,163 @@
             background-color: rgba(0, 0, 0, 0.95);
         }
 
+        /* Responsive Design */
+
+        /* Large tablets and small desktops */
+        @media (max-width: 1024px) {
+            .terminal-container {
+                max-width: 100%;
+                padding: 15px;
+            }
+
+            .terminal-body {
+                font-size: 13px;
+                padding: 18px;
+            }
+        }
+
+        /* Tablets */
         @media (max-width: 768px) {
             .terminal-container {
                 padding: 10px;
+                height: 100vh;
+            }
+
+            .terminal-header {
+                padding: 8px 12px;
+            }
+
+            .terminal-button {
+                width: 10px;
+                height: 10px;
+            }
+
+            .terminal-title {
+                font-size: 11px;
             }
 
             .terminal-body {
                 font-size: 12px;
                 padding: 15px;
+                line-height: 1.5;
             }
 
             .ascii-art {
-                font-size: 8px;
+                font-size: 6px;
+                overflow-x: auto;
+            }
+
+            .section-title {
+                font-size: 14px;
+            }
+
+            .skill-tag {
+                font-size: 11px;
+                padding: 2px 6px;
+            }
+        }
+
+        /* Mobile devices */
+        @media (max-width: 480px) {
+            .terminal-container {
+                padding: 5px;
+            }
+
+            .terminal-header {
+                padding: 6px 10px;
+                gap: 6px;
+            }
+
+            .terminal-button {
+                width: 8px;
+                height: 8px;
+            }
+
+            .terminal-title {
+                font-size: 10px;
+                margin-left: 5px;
+            }
+
+            .terminal-body {
+                font-size: 11px;
+                padding: 10px;
+                line-height: 1.4;
+            }
+
+            .terminal-input-line {
+                flex-wrap: wrap;
+            }
+
+            .terminal-prompt {
+                font-size: 10px;
+            }
+
+            #terminal-input {
+                font-size: 11px;
+                min-width: 100%;
+                margin-top: 4px;
+            }
+
+            .ascii-art {
+                font-size: 5px;
+                line-height: 1;
+                overflow-x: auto;
+                white-space: pre;
+                max-width: 100%;
+            }
+
+            .section-title {
+                font-size: 13px;
+            }
+
+            .skill-tag {
+                font-size: 10px;
+                padding: 2px 5px;
+                margin: 1px;
+            }
+        }
+
+        /* Very small mobile devices */
+        @media (max-width: 360px) {
+            .terminal-body {
+                font-size: 10px;
+                padding: 8px;
+            }
+
+            .terminal-prompt {
+                font-size: 9px;
+            }
+
+            #terminal-input {
+                font-size: 10px;
+            }
+
+            .ascii-art {
+                font-size: 4px;
+            }
+
+            .section-title {
+                font-size: 12px;
+            }
+
+            .skill-tag {
+                font-size: 9px;
+                padding: 1px 4px;
+            }
+        }
+
+        /* Landscape orientation on mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .terminal-container {
+                padding: 5px;
+            }
+
+            .terminal-header {
+                padding: 4px 8px;
+            }
+
+            .terminal-body {
+                padding: 10px;
             }
         }
     </style>

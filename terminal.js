@@ -437,12 +437,20 @@ class Terminal {
         canvas.height = window.innerHeight;
 
         const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
-        const fontSize = 14;
+        // Responsive font size based on screen width
+        const fontSize = window.innerWidth < 480 ? 10 : window.innerWidth < 768 ? 12 : 14;
         const columns = canvas.width / fontSize;
         const drops = Array(Math.floor(columns)).fill(1);
 
         let frameCount = 0;
         const maxFrames = 300; // Run for ~5 seconds at 60fps
+
+        // Handle window resize during animation
+        const handleResize = () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        };
+        window.addEventListener('resize', handleResize);
 
         const draw = () => {
             ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
@@ -466,6 +474,7 @@ class Terminal {
                 requestAnimationFrame(draw);
             } else {
                 canvas.style.display = 'none';
+                window.removeEventListener('resize', handleResize);
                 this.print(`<span class="success">The Matrix has you...</span>`);
                 this.print(`<span class="info">Press any key to return to reality.</span>`);
                 this.scrollToBottom();
