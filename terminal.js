@@ -355,11 +355,11 @@ class Terminal {
     curl() {
         this.print(`<span class="section-title">🌐 cURL Access</span>\n`);
         this.print(`<span class="info">You can also access this portfolio via curl!</span>\n`);
-        this.print(`<span class="command">$ curl muteeullah.b0lt.foo</span>          <span class="muted"># Main page with ASCII art</span>`);
-        this.print(`<span class="command">$ curl muteeullah.b0lt.foo/about</span>     <span class="muted"># About me</span>`);
-        this.print(`<span class="command">$ curl muteeullah.b0lt.foo/experience</span> <span class="muted"># Work experience</span>`);
-        this.print(`<span class="command">$ curl muteeullah.b0lt.foo/skills</span>    <span class="muted"># Technical skills</span>`);
-        this.print(`<span class="command">$ curl muteeullah.b0lt.foo/contact</span>   <span class="muted"># Contact info</span>`);
+        this.print(`<span class="command">$ curl -L muteeullah.b0lt.foo</span>          <span class="muted"># Main page with ASCII art</span>`);
+        this.print(`<span class="command">$ curl -L muteeullah.b0lt.foo/about</span>     <span class="muted"># About me</span>`);
+        this.print(`<span class="command">$ curl -L muteeullah.b0lt.foo/experience</span> <span class="muted"># Work experience</span>`);
+        this.print(`<span class="command">$ curl -L muteeullah.b0lt.foo/skills</span>    <span class="muted"># Technical skills</span>`);
+        this.print(`<span class="command">$ curl -L muteeullah.b0lt.foo/contact</span>   <span class="muted"># Contact info</span>`);
         this.print(``);
         this.print(`<span class="info">All curl responses feature ANSI colors and ASCII art!</span>`);
     }
