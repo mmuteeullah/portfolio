@@ -154,7 +154,7 @@ class Terminal {
         this.print(`<span class="section-title">╚════════════════════════════════════════════════════════════════════╝</span>\n`);
         this.print(`<span class="highlight">Mohammed Muteeullah</span>`);
         this.print(`<span class="info">Senior Site Reliability Engineer</span>\n`);
-        this.print(`Self-driven SRE with <span class="highlight">5+ years</span> of hands-on experience in AWS and GCP.`);
+        this.print(`Self-driven SRE with <span class="highlight">7+ years</span> of hands-on experience in AWS and GCP.`);
         this.print(`Specializing in designing, implementing, and automating cloud/on-prem infrastructure.\n`);
         this.print(`<span class="success">💰 Cost Optimization Expert:</span> Saved over <span class="highlight">$100,000+</span> annually through strategic cloud optimization`);
         this.print(`<span class="success">☁️  Multi-Cloud:</span> Expert in AWS & GCP migrations and infrastructure`);
@@ -179,7 +179,7 @@ class Terminal {
 
         this.print(`<span class="company">█ Vimeo</span>`);
         this.print(`  <span class="job-title">Senior Site Reliability Engineer</span>`);
-        this.print(`  <span class="date">01/2025 – Present | Remote, India</span>\n`);
+        this.print(`  <span class="date">01/2025 – 01/2026 | Remote, India</span>\n`);
         this.print(`  • Enhanced system stability and uptime through proactive monitoring`);
         this.print(`  • Strengthened security posture with GCP services integration`);
         this.print(`  • <span class="highlight">Saved ~$90,000 annually</span> through strategic cost optimization`);
@@ -220,8 +220,9 @@ class Terminal {
             'Infrastructure as Code': ['Terraform', 'Ansible'],
             'Orchestration': ['Kubernetes', 'Nomad', 'Mesos'],
             'Databases': ['MongoDB', 'PostgreSQL'],
-            'Monitoring': ['Prometheus', 'Grafana'],
-            'Programming': ['Python', 'Bash', 'Go'],
+            'Monitoring': ['LGTM Stack', 'Prometheus', 'Grafana'],
+            'Systems': ['Linux'],
+            'Programming': ['Python', 'Java', 'Bash', 'Go'],
             'CI/CD': ['Argo Workflows', 'GitLab CI', 'Jenkins'],
             'Big Data': ['Apache Spark', 'PySpark'],
         };
