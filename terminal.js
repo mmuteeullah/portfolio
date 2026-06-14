@@ -303,31 +303,22 @@ class Terminal {
     }
 
     homelab() {
-        this.print(`<span class="section-title">╔════════════════════════════════════════════════════════════════════╗</span>`);
-        this.print(`<span class="section-title">║                     HOMELAB INFRASTRUCTURE                         ║</span>`);
-        this.print(`<span class="section-title">╚════════════════════════════════════════════════════════════════════╝</span>\n`);
-
+        this.print(`<span class="section-title">HOMELAB INFRASTRUCTURE</span>\n`);
         this.print(`<span class="info">Hardware:</span> Lenovo ThinkCentre SFF | Intel i5-8500T | 32GB RAM | 2x NVMe`);
         this.print(`<span class="info">Platform:</span> Proxmox VE | Everything as IaC (Terraform + Ansible)\n`);
 
-        this.print(`<span class="highlight">┌───────────────────────────────────────────────────┐</span>`);
-        this.print(`<span class="highlight">│</span>  <span class="info">Internet</span> ─→ Router ─→ <span class="command">Proxmox (dome)</span>             <span class="highlight">│</span>`);
-        this.print(`<span class="highlight">│</span>                         │                         <span class="highlight">│</span>`);
-        this.print(`<span class="highlight">│</span>    ┌────────────────────┴────────────────────┐    <span class="highlight">│</span>`);
-        this.print(`<span class="highlight">│</span>    │  <span class="warning">Internal Network (10.0.0.0/24)</span>         │    <span class="highlight">│</span>`);
-        this.print(`<span class="highlight">│</span>    │                                        │    <span class="highlight">│</span>`);
-        this.print(`<span class="highlight">│</span>    │  <span class="command">tailscale-gw</span>  <span class="command">proxy</span>  <span class="command">monitoring</span>     │    <span class="highlight">│</span>`);
-        this.print(`<span class="highlight">│</span>    │  <span class="muted">(VPN mesh)</span>    <span class="muted">(Caddy)</span> <span class="muted">(Prom+Grafana)</span> │    <span class="highlight">│</span>`);
-        this.print(`<span class="highlight">│</span>    │                                        │    <span class="highlight">│</span>`);
-        this.print(`<span class="highlight">│</span>    │  <span class="command">n8n</span>       <span class="command">memos</span>     <span class="command">karakeep</span>      │    <span class="highlight">│</span>`);
-        this.print(`<span class="highlight">│</span>    │  <span class="muted">(automate)</span> <span class="muted">(notes)</span>    <span class="muted">(bookmarks)</span>   │    <span class="highlight">│</span>`);
-        this.print(`<span class="highlight">│</span>    │                                        │    <span class="highlight">│</span>`);
-        this.print(`<span class="highlight">│</span>    │  <span class="command">vaultwarden</span>      <span class="command">talos-k8s</span>          │    <span class="highlight">│</span>`);
-        this.print(`<span class="highlight">│</span>    │  <span class="muted">(passwords)</span>      <span class="muted">(K8s cluster)</span>      │    <span class="highlight">│</span>`);
-        this.print(`<span class="highlight">│</span>    └────────────────────────────────────────┘    <span class="highlight">│</span>`);
-        this.print(`<span class="highlight">└───────────────────────────────────────────────────┘</span>\n`);
+        const diagram = `<pre style="font-family:inherit;margin:0;line-height:1.4"><span class="highlight">Internet ─→ Router ─→ Proxmox (dome)</span>
+                          <span class="muted">│</span>
+         <span class="muted">┌────────────────┴─────────────────┐</span>
+         <span class="muted">│</span>  <span class="warning">Internal Network (10.0.0.0/24)</span>   <span class="muted">│</span>
+         <span class="muted">│</span>                                  <span class="muted">│</span>
+         <span class="muted">│</span>  <span class="command">tailscale-gw</span>  <span class="command">proxy</span>  <span class="command">monitoring</span> <span class="muted">│</span>
+         <span class="muted">│</span>  <span class="command">n8n</span>    <span class="command">memos</span>    <span class="command">karakeep</span>       <span class="muted">│</span>
+         <span class="muted">│</span>  <span class="command">vaultwarden</span>     <span class="command">talos-k8s</span>      <span class="muted">│</span>
+         <span class="muted">└──────────────────────────────────┘</span></pre>`;
+        this.print(diagram);
 
-        this.print(`<span class="section-title">Live Services:</span>\n`);
+        this.print(`\n<span class="section-title">Live Services:</span>\n`);
         this.print(`  <span class="success">●</span> <span class="highlight">Voice Life OS</span>     iPhone dictation → AI classify → Calendar/Tasks/Notes`);
         this.print(`  <span class="success">●</span> <span class="highlight">Karakeep</span>          AI-powered bookmark manager with auto-tagging`);
         this.print(`  <span class="success">●</span> <span class="highlight">Vaultwarden</span>       Self-hosted Bitwarden password manager`);
@@ -339,44 +330,31 @@ class Terminal {
     }
 
     neofetch() {
-        const logo = [
-            '<span class="command">        .--.        </span>',
-            '<span class="command">       |o_o |       </span>',
-            '<span class="command">       |:_/ |       </span>',
-            '<span class="command">      //   \\ \\      </span>',
-            '<span class="command">     (|     | )     </span>',
-            '<span class="command">    /\'\\\_   _/\`\\     </span>',
-            '<span class="command">    \\\___)=(___/     </span>',
-        ];
-
-        const info = [
-            ['<span class="highlight">muteeullah</span><span class="muted">@</span><span class="info">portfolio</span>', ''],
-            ['<span class="muted">────────────────────────────────────────</span>', ''],
-            ['<span class="info">OS</span>',       'SRE v7.0 (Mumbai Edition)'],
-            ['<span class="info">Host</span>',     'Lenovo ThinkCentre | Proxmox VE'],
-            ['<span class="info">Kernel</span>',   'Infrastructure-as-Code'],
-            ['<span class="info">Uptime</span>',   '7+ years in production'],
-            ['<span class="info">Packages</span>', 'Terraform, Ansible, K8s, Docker'],
-            ['<span class="info">Shell</span>',    'bash/zsh + too many aliases'],
-            ['<span class="info">Terminal</span>', 'Ghostty'],
-            ['<span class="info">Theme</span>',    'Catppuccin Mocha'],
-            ['<span class="info">CPU</span>',      'Cost Optimization Engine v3'],
-            ['<span class="info">Memory</span>',   '$100K+ saved / year'],
-            ['<span class="info">GPU</span>',      'Zero-Downtime Migration Accelerator'],
-            ['<span class="info">Disk</span>',     '0 incidents (PagerDuty: defunct)'],
-            ['<span class="info">Network</span>', 'AWS ↔ GCP ↔ On-Prem ↔ Homelab'],
-            ['<span class="info">Locale</span>',   'Mumbai, IN'],
-        ];
-
-        this.print('');
-        for (let i = 0; i < info.length; i++) {
-            const logoLine = i < logo.length ? logo[i] : '                     ';
-            const infoLine = info[i][1] ? `${info[i][0]}: ${info[i][1]}` : info[i][0];
-            this.print(`${logoLine}  ${infoLine}`);
-        }
-        this.print('');
-        this.print('                      <span style="color:#f38ba8">███</span><span style="color:#fab387">███</span><span style="color:#f9e2af">███</span><span style="color:#a6e3a1">███</span><span style="color:#89b4fa">███</span><span style="color:#cba6f7">███</span>');
-        this.print('');
+        const output = `
+<pre style="font-family:inherit;margin:0;line-height:1.5">
+<span class="command">                 .88888888:.</span>          <span class="highlight">muteeullah</span><span class="muted">@</span><span class="info">portfolio</span>
+<span class="command">                88888888.88888.</span>        <span class="muted">──────────────────────────────────────</span>
+<span class="command">              .8888888888888888.</span>       <span class="info">OS</span>:       SRE v7.0 (Mumbai Edition)
+<span class="command">              888888888888888888</span>       <span class="info">Host</span>:     Lenovo ThinkCentre | Proxmox VE
+<span class="command">              88' _\`88'_  \`88888</span>       <span class="info">Kernel</span>:   Infrastructure-as-Code
+<span class="command">              88 88 88 88  88888</span>       <span class="info">Uptime</span>:   7+ years in production
+<span class="command">              88_88_::_88_:88888</span>       <span class="info">Packages</span>: Terraform, Ansible, K8s, Docker
+<span class="command">              88:::,::,:::::8888</span>       <span class="info">Shell</span>:    bash/zsh + too many aliases
+<span class="command">              88\`::::::::'\`8888</span>        <span class="info">Terminal</span>: Ghostty
+<span class="command">             .88  \`::::'    8:88.</span>      <span class="info">Theme</span>:    Catppuccin Mocha
+<span class="command">            8888            \`8:888.</span>    <span class="info">CPU</span>:      Cost Optimization Engine v3
+<span class="command">          .8888'             \`888888.</span>  <span class="info">Memory</span>:   $100K+ saved / year
+<span class="command">         .8888:..  .::.  ...:'8888888.</span> <span class="info">GPU</span>:      Zero-Downtime Migration Accel.
+<span class="command">        .8888.'     :'     \`'::\`88:88888</span><span class="info">Disk</span>:     0 incidents (PagerDuty: defunct)
+<span class="command">       .8888        '         \`.888:8888.</span>
+<span class="command">      888:8         .           888:88888</span><span class="info">Network</span>:  AWS ↔ GCP ↔ On-Prem ↔ Homelab
+<span class="command">    .888:88        .:           888:88888:</span>
+<span class="command">    8888888.       ::           88:888888</span><span class="info">Locale</span>:   Mumbai, IN
+<span class="command">    \`.::.888.      ::          .googol8888</span>
+<span class="command">   .::::::.888.    ::         ::;googol888:</span>  <span style="color:#f38ba8">███</span><span style="color:#fab387">███</span><span style="color:#f9e2af">███</span><span style="color:#a6e3a1">███</span><span style="color:#89b4fa">███</span><span style="color:#cba6f7">███</span>
+<span class="command">  ::::::::::.888   '          googol888'</span>
+</pre>`;
+        this.print(output);
     }
 
     resume() {
