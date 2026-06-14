@@ -86,6 +86,9 @@ class Terminal {
             'education': () => this.education(),
             'certs': () => this.certifications(),
             'certifications': () => this.certifications(),
+            'projects': () => this.projects(),
+            'homelab': () => this.homelab(),
+            'neofetch': () => this.neofetch(),
             'contact': () => this.contact(),
             'resume': () => this.resume(),
             'download': () => this.download(),
@@ -129,9 +132,12 @@ class Terminal {
         this.print(`<span class="section-title">Available Commands:</span>\n`);
         this.print(`<span class="command">about</span> / <span class="command">whoami</span>    - Learn more about me`);
         this.print(`<span class="command">experience</span>        - View my work experience`);
+        this.print(`<span class="command">projects</span>          - See what I'm building`);
+        this.print(`<span class="command">homelab</span>           - My self-hosted infrastructure`);
         this.print(`<span class="command">skills</span>            - Check out my technical skills`);
         this.print(`<span class="command">education</span>         - View my educational background`);
         this.print(`<span class="command">certs</span>             - See my certifications`);
+        this.print(`<span class="command">neofetch</span>          - System info (SRE edition)`);
         this.print(`<span class="command">contact</span>           - Get in touch with me`);
         this.print(`<span class="command">resume</span>            - View formatted resume`);
         this.print(`<span class="command">download</span>          - Download my resume (PDF)`);
@@ -222,7 +228,7 @@ class Terminal {
             'Databases': ['MongoDB', 'PostgreSQL'],
             'Monitoring': ['LGTM Stack', 'Prometheus', 'Grafana'],
             'Systems': ['Linux'],
-            'Programming': ['Python', 'Java', 'Bash', 'Go'],
+            'Programming': ['Go', 'Python', 'Dart', 'TypeScript', 'Java', 'HCL'],
             'CI/CD': ['Argo Workflows', 'GitLab CI', 'Jenkins'],
             'Big Data': ['Apache Spark', 'PySpark'],
         };
@@ -275,6 +281,103 @@ class Terminal {
         this.print(`<span class="muted">Feel free to reach out for opportunities, collaborations, or just to chat about SRE!</span>`);
     }
 
+    projects() {
+        this.print(`<span class="section-title">╔════════════════════════════════════════════════════════════════════╗</span>`);
+        this.print(`<span class="section-title">║                        PROJECTS                                    ║</span>`);
+        this.print(`<span class="section-title">╚════════════════════════════════════════════════════════════════════╝</span>\n`);
+
+        const projects = [
+            { name: 'CoreNVR', lang: 'Go', desc: 'Lightweight network video recorder', url: 'https://github.com/mmuteeullah/CoreNVR' },
+            { name: 'FinWise', lang: 'Flutter/Dart', desc: 'Personal finance tracking app', url: 'https://github.com/mmuteeullah/FinWise' },
+            { name: 'kubrickz', lang: 'Python', desc: 'K8s capacity visualization — fit your pods like Tetris blocks', url: 'https://github.com/mmuteeullah/kubrickz' },
+            { name: 'carworth', lang: 'Python', desc: 'Car valuation engine', url: 'https://github.com/mmuteeullah/carworth' },
+        ];
+
+        projects.forEach(p => {
+            this.print(`<span class="highlight">▸ ${p.name}</span> <span class="muted">[${p.lang}]</span>`);
+            this.print(`  ${p.desc}`);
+            this.print(`  <span class="link" onclick="window.open('${p.url}', '_blank')">${p.url}</span>\n`);
+        });
+
+        this.print(`<span class="muted">View all projects:</span> <span class="link" onclick="window.open('https://github.com/mmuteeullah', '_blank')">github.com/mmuteeullah</span>`);
+    }
+
+    homelab() {
+        this.print(`<span class="section-title">╔════════════════════════════════════════════════════════════════════╗</span>`);
+        this.print(`<span class="section-title">║                     HOMELAB INFRASTRUCTURE                         ║</span>`);
+        this.print(`<span class="section-title">╚════════════════════════════════════════════════════════════════════╝</span>\n`);
+
+        this.print(`<span class="info">Hardware:</span> Lenovo ThinkCentre SFF | Intel i5-8500T | 32GB RAM | 2x NVMe`);
+        this.print(`<span class="info">Platform:</span> Proxmox VE | Everything as IaC (Terraform + Ansible)\n`);
+
+        this.print(`<span class="highlight">┌───────────────────────────────────────────────────┐</span>`);
+        this.print(`<span class="highlight">│</span>  <span class="info">Internet</span> ─→ Router ─→ <span class="command">Proxmox (dome)</span>             <span class="highlight">│</span>`);
+        this.print(`<span class="highlight">│</span>                         │                         <span class="highlight">│</span>`);
+        this.print(`<span class="highlight">│</span>    ┌────────────────────┴────────────────────┐    <span class="highlight">│</span>`);
+        this.print(`<span class="highlight">│</span>    │  <span class="warning">Internal Network (10.0.0.0/24)</span>         │    <span class="highlight">│</span>`);
+        this.print(`<span class="highlight">│</span>    │                                        │    <span class="highlight">│</span>`);
+        this.print(`<span class="highlight">│</span>    │  <span class="command">tailscale-gw</span>  <span class="command">proxy</span>  <span class="command">monitoring</span>     │    <span class="highlight">│</span>`);
+        this.print(`<span class="highlight">│</span>    │  <span class="muted">(VPN mesh)</span>    <span class="muted">(Caddy)</span> <span class="muted">(Prom+Grafana)</span> │    <span class="highlight">│</span>`);
+        this.print(`<span class="highlight">│</span>    │                                        │    <span class="highlight">│</span>`);
+        this.print(`<span class="highlight">│</span>    │  <span class="command">n8n</span>       <span class="command">memos</span>     <span class="command">karakeep</span>      │    <span class="highlight">│</span>`);
+        this.print(`<span class="highlight">│</span>    │  <span class="muted">(automate)</span> <span class="muted">(notes)</span>    <span class="muted">(bookmarks)</span>   │    <span class="highlight">│</span>`);
+        this.print(`<span class="highlight">│</span>    │                                        │    <span class="highlight">│</span>`);
+        this.print(`<span class="highlight">│</span>    │  <span class="command">vaultwarden</span>      <span class="command">talos-k8s</span>          │    <span class="highlight">│</span>`);
+        this.print(`<span class="highlight">│</span>    │  <span class="muted">(passwords)</span>      <span class="muted">(K8s cluster)</span>      │    <span class="highlight">│</span>`);
+        this.print(`<span class="highlight">│</span>    └────────────────────────────────────────┘    <span class="highlight">│</span>`);
+        this.print(`<span class="highlight">└───────────────────────────────────────────────────┘</span>\n`);
+
+        this.print(`<span class="section-title">Live Services:</span>\n`);
+        this.print(`  <span class="success">●</span> <span class="highlight">Voice Life OS</span>     iPhone dictation → AI classify → Calendar/Tasks/Notes`);
+        this.print(`  <span class="success">●</span> <span class="highlight">Karakeep</span>          AI-powered bookmark manager with auto-tagging`);
+        this.print(`  <span class="success">●</span> <span class="highlight">Vaultwarden</span>       Self-hosted Bitwarden password manager`);
+        this.print(`  <span class="success">●</span> <span class="highlight">Monitoring</span>        Prometheus + Grafana + automated alerts`);
+        this.print(`  <span class="success">●</span> <span class="highlight">Daily Backups</span>     NVMe → SSD + Google Drive offsite`);
+        this.print(`  <span class="success">●</span> <span class="highlight">Talos K8s</span>         Immutable Kubernetes cluster\n`);
+
+        this.print(`<span class="muted">All infrastructure managed via Terraform + Ansible. Zero manual config.</span>`);
+    }
+
+    neofetch() {
+        const logo = [
+            '<span class="command">        .--.        </span>',
+            '<span class="command">       |o_o |       </span>',
+            '<span class="command">       |:_/ |       </span>',
+            '<span class="command">      //   \\ \\      </span>',
+            '<span class="command">     (|     | )     </span>',
+            '<span class="command">    /\'\\\_   _/\`\\     </span>',
+            '<span class="command">    \\\___)=(___/     </span>',
+        ];
+
+        const info = [
+            ['<span class="highlight">muteeullah</span><span class="muted">@</span><span class="info">portfolio</span>', ''],
+            ['<span class="muted">────────────────────────────────────────</span>', ''],
+            ['<span class="info">OS</span>',       'SRE v7.0 (Mumbai Edition)'],
+            ['<span class="info">Host</span>',     'Lenovo ThinkCentre | Proxmox VE'],
+            ['<span class="info">Kernel</span>',   'Infrastructure-as-Code'],
+            ['<span class="info">Uptime</span>',   '7+ years in production'],
+            ['<span class="info">Packages</span>', 'Terraform, Ansible, K8s, Docker'],
+            ['<span class="info">Shell</span>',    'bash/zsh + too many aliases'],
+            ['<span class="info">Theme</span>',    'Catppuccin Mocha'],
+            ['<span class="info">CPU</span>',      'Cost Optimization Engine v3'],
+            ['<span class="info">Memory</span>',   '$100K+ saved / year'],
+            ['<span class="info">GPU</span>',      'Zero-Downtime Migration Accelerator'],
+            ['<span class="info">Disk</span>',     '0 incidents (PagerDuty: defunct)'],
+            ['<span class="info">Network</span>', 'AWS ↔ GCP ↔ On-Prem ↔ Homelab'],
+            ['<span class="info">Locale</span>',   'Mumbai, IN'],
+        ];
+
+        this.print('');
+        for (let i = 0; i < info.length; i++) {
+            const logoLine = i < logo.length ? logo[i] : '                     ';
+            const infoLine = info[i][1] ? `${info[i][0]}: ${info[i][1]}` : info[i][0];
+            this.print(`${logoLine}  ${infoLine}`);
+        }
+        this.print('');
+        this.print('                      <span style="color:#f38ba8">███</span><span style="color:#fab387">███</span><span style="color:#f9e2af">███</span><span style="color:#a6e3a1">███</span><span style="color:#89b4fa">███</span><span style="color:#cba6f7">███</span>');
+        this.print('');
+    }
+
     resume() {
         this.print(`<span class="section-title">Full Resume</span>\n`);
         this.about();
@@ -310,13 +413,15 @@ class Terminal {
 
     // Utility Commands
     ls() {
-        this.print(`<span class="info">total 7</span>`);
-        this.print(`<span class="command">drwxr-xr-x</span>  2 muteeullah  staff   64B  about.txt`);
-        this.print(`<span class="command">drwxr-xr-x</span>  2 muteeullah  staff  128B  experience.txt`);
-        this.print(`<span class="command">drwxr-xr-x</span>  2 muteeullah  staff   96B  skills.txt`);
-        this.print(`<span class="command">drwxr-xr-x</span>  2 muteeullah  staff   64B  education.txt`);
-        this.print(`<span class="command">drwxr-xr-x</span>  2 muteeullah  staff   96B  certs.txt`);
-        this.print(`<span class="command">drwxr-xr-x</span>  2 muteeullah  staff   64B  contact.txt`);
+        this.print(`<span class="info">total 9</span>`);
+        this.print(`<span class="command">-rw-r--r--</span>  2 muteeullah  staff   64B  about.txt`);
+        this.print(`<span class="command">-rw-r--r--</span>  2 muteeullah  staff  128B  experience.txt`);
+        this.print(`<span class="command">-rw-r--r--</span>  2 muteeullah  staff   96B  projects.txt`);
+        this.print(`<span class="command">-rw-r--r--</span>  2 muteeullah  staff  256B  homelab.txt`);
+        this.print(`<span class="command">-rw-r--r--</span>  2 muteeullah  staff   96B  skills.txt`);
+        this.print(`<span class="command">-rw-r--r--</span>  2 muteeullah  staff   64B  education.txt`);
+        this.print(`<span class="command">-rw-r--r--</span>  2 muteeullah  staff   96B  certs.txt`);
+        this.print(`<span class="command">-rw-r--r--</span>  2 muteeullah  staff   64B  contact.txt`);
         this.print(`<span class="command">-rw-r--r--</span>  1 muteeullah  staff  512K  resume.pdf`);
     }
 
@@ -324,7 +429,7 @@ class Terminal {
         if (!file) {
             this.print(`<span class="error">cat: missing file argument</span>`);
             this.print(`Usage: cat <file>`);
-            this.print(`Available files: about.txt, experience.txt, skills.txt, education.txt, certs.txt, contact.txt`);
+            this.print(`Available files: about.txt, experience.txt, projects.txt, homelab.txt, skills.txt, education.txt, certs.txt, contact.txt`);
             return;
         }
 
@@ -333,6 +438,10 @@ class Terminal {
             'about': () => this.about(),
             'experience.txt': () => this.experience(),
             'experience': () => this.experience(),
+            'projects.txt': () => this.projects(),
+            'projects': () => this.projects(),
+            'homelab.txt': () => this.homelab(),
+            'homelab': () => this.homelab(),
             'skills.txt': () => this.skills(),
             'skills': () => this.skills(),
             'education.txt': () => this.education(),
@@ -592,7 +701,7 @@ class Terminal {
 
         if (parts.length === 1) {
             // Autocomplete command
-            const commands = ['help', 'about', 'whoami', 'experience', 'work', 'skills', 'education',
+            const commands = ['help', 'about', 'whoami', 'experience', 'work', 'projects', 'homelab', 'neofetch', 'skills', 'education',
                              'certs', 'certifications', 'contact', 'resume', 'download', 'github',
                              'linkedin', 'clear', 'ls', 'cat', 'sudo', 'hack', 'exit', 'matrix',
                              'coffee', 'uptime', 'ps', 'cowsay', 'fortune', 'curl', 'pwd', 'cd',
@@ -624,6 +733,8 @@ class Terminal {
                 const files = [
                     'about.txt', 'about',
                     'experience.txt', 'experience',
+                    'projects.txt', 'projects',
+                    'homelab.txt', 'homelab',
                     'skills.txt', 'skills',
                     'education.txt', 'education',
                     'certs.txt', 'certs', 'certifications.txt',
