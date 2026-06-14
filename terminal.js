@@ -358,6 +358,7 @@ class Terminal {
             ['<span class="info">Uptime</span>',   '7+ years in production'],
             ['<span class="info">Packages</span>', 'Terraform, Ansible, K8s, Docker'],
             ['<span class="info">Shell</span>',    'bash/zsh + too many aliases'],
+            ['<span class="info">Terminal</span>', 'Ghostty'],
             ['<span class="info">Theme</span>',    'Catppuccin Mocha'],
             ['<span class="info">CPU</span>',      'Cost Optimization Engine v3'],
             ['<span class="info">Memory</span>',   '$100K+ saved / year'],
