@@ -332,27 +332,24 @@ class Terminal {
     neofetch() {
         const output = `
 <pre style="font-family:inherit;margin:0;line-height:1.5">
-<span class="command">                 .88888888:.</span>          <span class="highlight">muteeullah</span><span class="muted">@</span><span class="info">portfolio</span>
-<span class="command">                88888888.88888.</span>        <span class="muted">──────────────────────────────────────</span>
-<span class="command">              .8888888888888888.</span>       <span class="info">OS</span>:       SRE v7.0 (Mumbai Edition)
-<span class="command">              888888888888888888</span>       <span class="info">Host</span>:     Lenovo ThinkCentre | Proxmox VE
-<span class="command">              88' _\`88'_  \`88888</span>       <span class="info">Kernel</span>:   Infrastructure-as-Code
-<span class="command">              88 88 88 88  88888</span>       <span class="info">Uptime</span>:   7+ years in production
-<span class="command">              88_88_::_88_:88888</span>       <span class="info">Packages</span>: Terraform, Ansible, K8s, Docker
-<span class="command">              88:::,::,:::::8888</span>       <span class="info">Shell</span>:    bash/zsh + too many aliases
-<span class="command">              88\`::::::::'\`8888</span>        <span class="info">Terminal</span>: Ghostty
-<span class="command">             .88  \`::::'    8:88.</span>      <span class="info">Theme</span>:    Catppuccin Mocha
-<span class="command">            8888            \`8:888.</span>    <span class="info">CPU</span>:      Cost Optimization Engine v3
-<span class="command">          .8888'             \`888888.</span>  <span class="info">Memory</span>:   $100K+ saved / year
-<span class="command">         .8888:..  .::.  ...:'8888888.</span> <span class="info">GPU</span>:      Zero-Downtime Migration Accel.
-<span class="command">        .8888.'     :'     \`'::\`88:88888</span><span class="info">Disk</span>:     0 incidents (PagerDuty: defunct)
-<span class="command">       .8888        '         \`.888:8888.</span>
-<span class="command">      888:8         .           888:88888</span><span class="info">Network</span>:  AWS ↔ GCP ↔ On-Prem ↔ Homelab
-<span class="command">    .888:88        .:           888:88888:</span>
-<span class="command">    8888888.       ::           88:888888</span><span class="info">Locale</span>:   Mumbai, IN
-<span class="command">    \`.::.888.      ::          .googol8888</span>
-<span class="command">   .::::::.888.    ::         ::;googol888:</span>  <span style="color:#f38ba8">███</span><span style="color:#fab387">███</span><span style="color:#f9e2af">███</span><span style="color:#a6e3a1">███</span><span style="color:#89b4fa">███</span><span style="color:#cba6f7">███</span>
-<span class="command">  ::::::::::.888   '          googol888'</span>
+<span class="command">        #####</span>           <span class="highlight">muteeullah</span><span class="muted">@</span><span class="info">portfolio</span>
+<span class="command">       #######</span>          <span class="muted">──────────────────────────────────────</span>
+<span class="command">       ##O#O##</span>          <span class="info">OS</span>:       SRE v7.0 (Mumbai Edition)
+<span class="command">       #######</span>          <span class="info">Host</span>:     Lenovo ThinkCentre | Proxmox VE
+<span class="command">     ###########</span>        <span class="info">Kernel</span>:   Infrastructure-as-Code
+<span class="command">    #############</span>       <span class="info">Uptime</span>:   7+ years in production
+<span class="command">   ###############</span>      <span class="info">Packages</span>: Terraform, Ansible, K8s, Docker
+<span class="command">   ################</span>     <span class="info">Shell</span>:    bash/zsh + too many aliases
+<span class="command">   ################</span>     <span class="info">Terminal</span>: Ghostty
+<span class="command">   ################</span>     <span class="info">Theme</span>:    Catppuccin Mocha
+<span class="command">    ####  ########</span>      <span class="info">CPU</span>:      Cost Optimization Engine v3
+<span class="command">     ##    ######</span>       <span class="info">Memory</span>:   $100K+ saved / year
+<span class="command">            ####</span>        <span class="info">GPU</span>:      Zero-Downtime Migration Accel.
+<span class="command">             ##</span>         <span class="info">Disk</span>:     0 incidents (PagerDuty: defunct)
+                        <span class="info">Network</span>:  AWS ↔ GCP ↔ On-Prem ↔ Homelab
+                        <span class="info">Locale</span>:   Mumbai, IN
+
+                        <span style="color:#f38ba8">███</span><span style="color:#fab387">███</span><span style="color:#f9e2af">███</span><span style="color:#a6e3a1">███</span><span style="color:#89b4fa">███</span><span style="color:#cba6f7">███</span>
 </pre>`;
         this.print(output);
     }
